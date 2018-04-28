@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,7 +31,7 @@ public class PersonController {
 		return personService.findAll();
 	}
 	@RequestMapping(value = "/person", method = RequestMethod.POST) 
-	public @ResponseBody Person addPerson(Person person){
+	public @ResponseBody Person addPerson(@RequestBody Person person){
 		return personService.save(person);
 	}
 	@RequestMapping(value = "/person/{id}", method = RequestMethod.DELETE) 
